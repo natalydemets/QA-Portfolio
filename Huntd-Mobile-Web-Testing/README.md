@@ -1,51 +1,18 @@
-# Hunter – Web & Mobile QA Documentation Project
+Huntd is my main QA portfolio project for both web and mobile. The product is a job search and application tracking app. My goal was to verify the quality of the application and prepare clear testing documentation and defect evaluation.
 
-## 📌 Project Overview
+In this project I created the test plan, decomposition, permission table, and RTM. I wrote and organized test cases in TestRail for web and mobile, and tracked defects in Jira. All materials are structured so it is easy to review what was tested and how the coverage was built.
 
-Hunter (Huntd) is a web and mobile job search application.
+Skills shown
+Requirements analysis and decomposition
+Test planning and test design
+RTM and permission testing
+Test case management and coverage tracking
+Bug reporting and defect tracking
+Web and mobile testing workflow
 
-In this project I focused on structured QA documentation, requirement analysis, and test design activities.
-
----
-
-## 🎯 My Responsibilities
-
-- Test Plan creation
-- Requirements decomposition
-- RTM (Requirements Traceability Matrix)
-- Permission testing analysis
-- Test case design (Web & Mobile)
-- Test execution documentation
-- Test reporting
-
----
-
-## 📂 Project Structure
-
-### 01_Test-Plan
-Contains:
-- Test Plan document
-- Final Test Report
-
-### 02_Test-Design
-Contains:
-- Requirements Decomposition
-- RTM
-- Permission Table
-
-### 04_TestRail-Exports
-Contains:
-- Test case exports (XML)
-- Test run export
-- Mobile testing artifacts
-
----
-
-## 🛠 Tools Used
-
-- TestRail
-- Jira
-- Google Docs
-- Excel
-- GitHub
-- Markdown
+Tools used
+TestRail Web
+TestRail Mobile
+Jira
+Google Sheets / Excel
+Git and GitHub
