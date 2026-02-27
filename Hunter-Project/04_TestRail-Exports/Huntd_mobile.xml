@@ -1,0 +1,4176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite>
+	<id>S3</id>
+	<name>Master</name>
+	<description></description>
+	<sections>
+		<section>
+		<name>Mobile User logged Out</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>Create an account</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3229</id>
+				<title>Users should see the &quot;Create an Account&quot; page to register.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3193</id>
+				<title>User should see the title &quot;Create an account&quot; at the top of the page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Email&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C658</id>
+				<title>User should be able to enter their email in the &quot;Email&quot; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3194</id>
+				<title>User should receive a validation error &quot;This field can&apos;t be empty&quot; when the Email input field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Password&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C659</id>
+				<title>User should be able to enter their password in the &quot;Password&quot; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3195</id>
+				<title>User should receive a validation error &quot;This field can&apos;t be empty&quot; when the Password input field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Repeat password&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C660</id>
+				<title>User should be able to enter their password again in the &quot;Repeat password&quot; field to confirm.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3196</id>
+				<title>User should receive a validation error &quot;This field can&apos;t be empty&quot; when the Repeat Password input field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Create account]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C661</id>
+				<title>User should be able to click the [Create Account] button to submit the registration form.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Sign in with</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3197</id>
+				<title>User should see the &quot;Sign in with&quot; section below the Create Account button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>[Google]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3198</id>
+				<title>User should see the Google sign-up option.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C662</id>
+				<title>User should be able to sign up using the Google sign-up option.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Apple]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3199</id>
+				<title>User should see the Apple sign-up option.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C663</id>
+				<title>User should be able to sign up using the Apple sign-up option.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Chats</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3209</id>
+				<title>User should see the Chats tab in the bottom navigation bar.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3211</id>
+				<title>User should see the Chats tab highlighted when on the Chats page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3200</id>
+				<title>User should see the title &quot;My chats&quot; at the top of the Chats page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3202</id>
+				<title>User should see the search icon at the top right of the page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>All</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3201</id>
+				<title>User should see the All tab as the default selection on Chat page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3205</id>
+				<title>User should see the All tab text highlighted when selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Message: There is no messages yet</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1004</id>
+				<title>User should see the message &quot;There is no messages yet&quot; when no messages exist.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Descriptions: Your future chats with hiring managers.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1005</id>
+				<title>User should see the description &quot;Your future chats with hiring managers&quot; below the message.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Archive</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3203</id>
+				<title>User should see the Archive tab on the Chats page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3204</id>
+				<title>User should see the Archive tab text highlighted when selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Message: There is no messages yet</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1006</id>
+				<title>User should see the message &quot;There are no messages yet&quot; if no chats exist in the Archive tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Descriptions: Your future chats with hiring managers.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1007</id>
+				<title>User should see the description text &quot;Your future chats with hiring managers&quot; in the Archive tab if no chats exist.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Profile</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3210</id>
+				<title>User should see the Profile tab in the bottom navigation bar.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3212</id>
+				<title>User should see the Profile tab highlighted when on the Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3213</id>
+				<title>User should be able to navigate between Chats and Profile sections.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>I am...</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1008</id>
+				<title>User should see the title &quot;I am...&quot; at the top of the Profile section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>[CANDIDATE - hunting for nteresting job offer]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1009</id>
+				<title>User should see the option &quot;CANDIDATE - hunting for interesting job offers&quot;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3206</id>
+				<title>User should be able to choose the Candidate option to proceed.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Back Navigation Button: Left arrow icon.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3231</id>
+				<title>User should see the back navigation button (left arrow icon) at the top left of the page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3232</id>
+				<title>User should be able to click the back navigation button (left arrow icon).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3233</id>
+				<title>User should navigate to the previous screen upon clicking the back navigation button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Profile information</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3230</id>
+				<title>User should be redirected to enter the candidate&apos;s profile information on the Profile information page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Subtitle</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3234</id>
+				<title>User should see subtitle &quot;Hiring managers filter engineers based on this information&quot;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Role</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3238</id>
+				<title>User should see the Role tab on the Profile information page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Desired Position:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3237</id>
+				<title>User should see &quot;Desired position&quot; field in the Role tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Input field with &quot;Example: Senior Java Engineer&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3236</id>
+				<title>User should be able to enter their desired position in the field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation Message: &quot;This field can&apos;t be empty&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3235</id>
+				<title>User should see a validation message &apos;This field can&apos;t be empty&apos; if &apos;Desired Position&apos; is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Desired roles:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3239</id>
+				<title>Use should see the &quot;Desired roles&quot; option in the Role tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Select specialisation: with [&gt;] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3240</id>
+				<title>User should be able to click on the  [&gt;] button to see the list of options.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3241</id>
+				<title>User should be able to select any option in the list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation Message: &quot;This field can&apos;t be empty&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3242</id>
+				<title>User should see a validation message &apos;This field can&apos;t be empty&apos; if &apos;Specialisation&apos; is not selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Type and select strongest tech skills:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3243</id>
+				<title>Use rshould see &quot;Type and select strongest tech skills&quot; option in the Role tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Select list: with [&gt;] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3244</id>
+				<title>User should be able to click on the  [&gt;] button to see the list of options.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3245</id>
+				<title>User should be able to type and select their strongest tech skills from the list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3277</id>
+				<title>User should be able to deselect a previously selected tech skill by tapping on it again.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3278</id>
+				<title>User should save their skills by clicking [Save changers].</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation Message: &quot;This field can&apos;t be empty&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3246</id>
+				<title>User should see a validation message &apos;This field can&apos;t be empty&apos; if tech skills are not selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>[SAVE AND CONTINUE]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3247</id>
+				<title>User should proceed to the next step by clicking the [SAVE AND CONTINUE] button when all fields are filled.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Expectations</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3248</id>
+				<title>User should see the Expectations tab on the Profile information page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Desired Base Salary, $</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3249</id>
+				<title>User should see &quot;Desired Base Salary, $ &quot; field in the Expectations tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Toggle Options: Annual/Monthly</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3217</id>
+				<title>User should be able to toggle between &apos;Monthly&apos; and &apos;Annual&apos; salary options.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Input field with &apos;$ Desired monthly salary&apos;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3214</id>
+				<title>User should be able to input &apos;Desired monthly salary&apos; value.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Input field with &apos;$ Desired annual salary&apos;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3215</id>
+				<title>User should be able to input &apos;Desired annual salary&apos; value.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Validation Message: &quot;This field can&apos;t be empty&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3216</id>
+				<title>User should see validation error &apos;This field can&apos;t be empty&apos; when &apos;Desired monthly salary&apos; is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Select work experience:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3251</id>
+				<title>User should be able select their work experience on the Expectations tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Select list with [&gt;] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3218</id>
+				<title>User should be able to select &apos;Work experience&apos; from the Select list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation Message: &quot;This field can&apos;t be empty&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3219</id>
+				<title>User should see validation error &apos;This field can&apos;t be empty&apos; when &apos;Work experience&apos; is not selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>English Level:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3252</id>
+				<title>User should be able select their English level on the Expectations tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Select list with [&gt;] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3220</id>
+				<title>User should be able to select &apos;English level&apos; from the select list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation Message: &quot;This field can&apos;t be empty&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3221</id>
+				<title>User should see validation error &apos;This field can&apos;t be empty&apos; when &apos;English level&apos; is not selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Select your location:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3253</id>
+				<title>User should be able select their location on the Expectations tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Location Search Redirect with [&gt;] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3222</id>
+				<title>After clicking the [&gt;] button in &apos;Select your location,&apos; the user should be redirected to search for a location.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3223</id>
+				<title>User should be able to select a location in &apos;Select your location&apos;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3254</id>
+				<title>User should be able delete the previously selected location by clicking [x].</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3255</id>
+				<title>User should be able to save their location by clicking [Save changers].</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Employment Options:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3256</id>
+				<title>User should be able to select Remote and Office employment options on the Expectations tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Checkbox: Remote</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3224</id>
+				<title>User should be able to check &apos;Remote&apos; option in Employment Options.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Checkbox: Office</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3225</id>
+				<title>User should be able to check &apos;Office&apos; options in Employment Options.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Location Search Redirect with [&gt;] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3226</id>
+				<title>User should be able to search for a location in &apos;Location Search Redirect&apos;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3227</id>
+				<title>User should be able to select a location in &apos;Location Search Redirect&apos;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>[SAVE AND CONTINUE]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3257</id>
+				<title>User should proceed to the next step by clicking the [SAVE AND CONTINUE] button when all fields are filled.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Bio</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3250</id>
+				<title>User should see the Bio tab on the Profile information page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Hints:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3258</id>
+				<title>User should see hints on how to fill the profile properly on Bio tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Fill profile properly to receive offers.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3259</id>
+				<title>User should see profile hint: Fill profile properly to receive exciting offers from companies.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Emphasis on avoiding templated profiles.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3260</id>
+				<title>User should see profile hint: Hiring managers don&apos;t pay attention to templated profiles.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Good profile examples:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3262</id>
+				<title>User should view good profile examples with links on the Bio tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>&quot;Frontend Engineer&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3261</id>
+				<title>User should view good profile examples with links for &quot;Frontend Engineer.&quot;</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>&quot;Mobile Engineer&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3263</id>
+				<title>User should view good profile examples with links for &quot;Mobile Engineer.&quot;</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>&quot;Backend Engineer&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3264</id>
+				<title>User should view good profile examples with links for &quot;Backend Engineer.&quot;</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Achievements/Key Results</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3266</id>
+				<title>User should see the Achievements/Key Results section on Bio tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Input Field:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3267</id>
+				<title>User should see the Achievements/Key Results input field on Bio tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3268</id>
+				<title>User should be able to enter achievements in the Achievements/Key Results field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Placeholder: Instructions for key results and contributions.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3265</id>
+				<title>User should see a placeholder in the Achievements/Key Results input field with instructions.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation: “This field can&apos;t be empty.”</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3269</id>
+				<title>User should receive a validation error message “This field can&apos;t be empty” if Achievements/Key Results is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Work Experience</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3270</id>
+				<title>User should see the Work Experience section on Bio tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Input Field:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3272</id>
+				<title>User should be able to enter work experience details in the Work Experience input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Placeholder: Instructions about career roles and problem-solving contributions.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3271</id>
+				<title>User should see a placeholder in the Work Experience input field with instructions.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation: “This field can&apos;t be empty.”</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3273</id>
+				<title>User should receive a validation error message “This field can&apos;t be empty” if Work Experience is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Job Expectations (Optional)</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3274</id>
+				<title>User should see the Job Expectations (Optional) section on Bio tab.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Input Field:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3276</id>
+				<title>User should be able to enter job expectations in the Job Expectations input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Placeholder: Instructions for next job expectations.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3275</id>
+				<title>User should see a placeholder in the Job Expectations input field with instructions for next job expectations.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>[SAVE AND CONTINUE]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3279</id>
+				<title>User should proceed to the preview profile by clicking the [SAVE AND CONTINUE] button when all fields are filled.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>[RECRUTITER - hiring talent]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1010</id>
+				<title>User should see the option &quot;RECRUITER - hiring talent&quot;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3207</id>
+				<title>User should be able to choose the Recruiter option to proceed.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Back Navigation Button: Left arrow icon.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3280</id>
+				<title>User should see a Back Navigation Button with a left arrow icon.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3281</id>
+				<title>User should be able to click the back navigation button (left arrow icon).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3282</id>
+				<title>User should navigate to the previous screen upon clicking the back navigation button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Company details</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3283</id>
+				<title>User should see the page title &apos;Company details&apos; when on the Recruiter section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Instruction: &quot;Please, fill the information about the Company you represent.&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3284</id>
+				<title>User should see the instruction: &quot;Please, fill in the information about the Company you represent&quot;.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>My role:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3285</id>
+				<title>User should be able to input text into the &apos;My role&apos; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Placeholder: &quot;My role&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3286</id>
+				<title>User should see a placeholder text &apos;My role&apos; in the &apos;My role&apos; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation: &quot;This field can&apos;t be empty.&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3287</id>
+				<title>User should see a validation message &apos;This field can&apos;t be empty&apos; if the &apos;My role&apos; field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Company:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3288</id>
+				<title>User should be able to input text into the &apos;Company&apos; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Placeholder: &quot;Company&quot;.</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3289</id>
+				<title>User should see a placeholder text &apos;Company&apos; in the &apos;Company&apos; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Validation: &quot;This field can&apos;t be empty.&quot;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3290</id>
+				<title>User should see a validation message &apos;This field can&apos;t be empty&apos; if the &apos;Company&apos; field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>[SAVE AND CONTINUE]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3291</id>
+				<title>User should be able to click the [SAVE AND CONTINUE] button to proceed when all fields are filled.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Sign out&apos; link</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1011</id>
+				<title>User should see the Sign out link at the bottom of the Profile section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3208</id>
+				<title>User should be able to log out by clicking the Sign out link.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Mobile User logged In</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>Sign in to you account</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1924</id>
+				<title>Users should see the &quot;Sign in to you account&quot; page to register.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3292</id>
+				<title>User should see the title &quot;Sign in to you account&quot; at the top of the page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Email&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3293</id>
+				<title>User should be able to enter their email in the &quot;Email&quot; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3294</id>
+				<title>User should receive a validation error &quot;This field can&apos;t be empty&quot; when the Email input field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Password&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3295</id>
+				<title>User should be able to enter their password in the &quot;Password&quot; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3296</id>
+				<title>User should receive a validation error &quot;This field can&apos;t be empty&quot; when the Password input field is left blank.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Sign In]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3297</id>
+				<title>User should see the [Sign In] button below the &apos;Password&apos; field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3298</id>
+				<title>User should be able to click the [Sign In] button to submit the login form.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Forgot password&apos; link</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3299</id>
+				<title>User should see the &apos;Forgot password&apos; link below the &apos;Sign In&apos; button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3300</id>
+				<title>User should be redirected to the &apos;Forgot Password&apos; screen when clicking the link.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Sign in with</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3301</id>
+				<title>User should see the &quot;Sign in with&quot; section on the &quot;Sign in&quot; page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>[Google]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3302</id>
+				<title>User should be able to sign in using Google.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Apple]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3303</id>
+				<title>User should be able to sign in using Apple.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Don&apos;t have an account &apos;Sign up&apos; link</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3304</id>
+				<title>User should be redirected to the &apos;Sign Up&apos; screen when clicking the &apos;Sign Up&apos; link.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>My chats</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1920</id>
+				<title>User should see the Chats tab in the bottom navigation bar.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3305</id>
+				<title>User should see the Chats tab highlighted when on the Chats page</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Search chats field:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3313</id>
+				<title>User should search for chats using the search field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>All</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3306</id>
+				<title>User should see the All tab as the default selection on Chat page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3307</id>
+				<title>User should see the All tab text highlighted when selected.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3321</id>
+				<title>User should be able to open the chat by clicking on any part of a user&apos;s row in the &apos;All&apos; chat list</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Role</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3308</id>
+				<title>User should view roles of users in the chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3309</id>
+				<title>User should view names of users in the chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Status indicators</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3314</id>
+				<title>User should view status indicators in the chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Last message timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3310</id>
+				<title>User should view the timestamp of the last message in the chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Chat header</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3320</id>
+				<title>User should view the profile picture in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3312</id>
+				<title>User should be redirected to the Preview Profile page after clicking on the user&apos;s profile picture.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Role</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3311</id>
+				<title>User should view the role of the user in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3322</id>
+				<title>User should view the name of the user in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Last message timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3323</id>
+				<title>User should view the timestamp of the last message in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Actions menu:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3324</id>
+				<title>User should open the Actions menu in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>[Share my contacts&amp;CV]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3325</id>
+				<title>User should select the &quot;Share my contacts &amp; CV&quot; option from the Actions menu (for Candidates).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Message Timeline</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>Date separators</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1921</id>
+				<title>User should view date separators for sent messages in the timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3326</id>
+				<title>User should view the profile picture next to sent messages.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3327</id>
+				<title>User should view timestamps for sent messages in the timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Send messages</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3328</id>
+				<title>User should view the send message text in the timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Date Separators</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1922</id>
+				<title>User should view date separators for received messages in the timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3329</id>
+				<title>User should view the profile picture next to received messages.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3330</id>
+				<title>User should view timestamps for received messages in the timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Received messages</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3331</id>
+				<title>User should view the received message text in the timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Interaction Options</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>[INTERESTED]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3334</id>
+				<title>User should express interest in a job offer using the [INTERESTED] button (Recruiter-specific).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[NOT INTERESTED]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3335</id>
+				<title>User should decline a job offer using the [NOT INTERESTED] button (Recruiter-specific).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Input field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3332</id>
+				<title>User should type a message in the input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Send] button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3333</id>
+				<title>User should send a message using the [Send] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Achive</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3315</id>
+				<title>User should access the archived chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Role</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3316</id>
+				<title>User should view roles of users in the archived chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3317</id>
+				<title>User should view names of users in the archived chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Status indicators</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3318</id>
+				<title>User should view status indicators in the archived chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Last message timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3319</id>
+				<title>User should view the timestamp of the last message in the archived chat list.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Chat header</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3353</id>
+				<title>User should view the profile picture in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3354</id>
+				<title>User should click the profile picture in the chat header to view details.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Role</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3352</id>
+				<title>User should view the role of the user in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3351</id>
+				<title>User should view the name of the user in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Last message timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3350</id>
+				<title>User should view the timestamp of the last message in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Actions menu:</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3349</id>
+				<title>User should open the Actions menu in the chat header.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>[Share my contacts&amp;CV]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3348</id>
+				<title>User should select the &quot;Share my contacts &amp; CV&quot; option from the Actions menu (for Candidates).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Message Timeline</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>Date separators</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3338</id>
+				<title>User should view date separators for sent messages in the archived chat timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3336</id>
+				<title>User should view the profile picture next to sent messages in archived chats.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3337</id>
+				<title>User should view timestamps for sent messages in the archived chat timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Send messages</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3347</id>
+				<title>User should view the send message text in the timeline</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Date Separators</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3341</id>
+				<title>User should view date separators for received messages in the archived chat timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3339</id>
+				<title>User should view the profile picture next to received messages in archived chats.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Timestamp</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3340</id>
+				<title>User should view timestamps for received messages in the archived chat timeline.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Received messages</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3346</id>
+				<title>User should view the received message text in the timeline</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Interaction Options</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>[INTERESTED]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3343</id>
+				<title>User should express interest in a job offer using the [INTERESTED] button in archived chats (Recruiter-specific).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[NOT INTERESTED]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3344</id>
+				<title>User should decline a job offer using the [NOT INTERESTED] button in archived chats (Recruiter-specific).</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Input Field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3345</id>
+				<title>ser should type a message in the input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Send Button]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3342</id>
+				<title>User should send a message in archived chats using the [Send] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+			<section>
+		<name>Profile</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1923</id>
+				<title>Mobile app user should preview profiles within the app.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C1927</id>
+				<title>Mobile app user should be able to edit basic profile information.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Critical</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Candidate profile Radio Button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3355</id>
+				<title>User should select the &quot;Candidate Profile&quot; radio button to switch to candidate-specific settings.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3356</id>
+				<title>User should view their profile picture displayed under the Candidate Profile.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3357</id>
+				<title>User should view their name displayed under the Candidate Profile.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile status: Inactive, Active</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1926</id>
+				<title>Mobile app user should be able to switch between active and inactive profile statuses.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3358</id>
+				<title>User should view their current status (Inactive or Active) under the Candidate Profile.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Preview Profile</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3359</id>
+				<title>User should open the &quot;Preview Profile&quot; page by clicking the [Preview Profile] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3360</id>
+				<title>User should view the profile picture in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3361</id>
+				<title>User should view their name in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Status: Active, Inactive</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3362</id>
+				<title>User should view their profile status (Active or Inactive) in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Contact email</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3363</id>
+				<title>User should view their contact email in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Social profiles</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3364</id>
+				<title>User should view linked social profiles (LinkedIn, Behance, GitHub) in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Desired position</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3365</id>
+				<title>User should view the desired position under the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Technologies</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3366</id>
+				<title>User should view the list of technologies added under the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Desired base salary, $</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3367</id>
+				<title>User should view the desired base salary (in $) in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Job experience</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3368</id>
+				<title>User should view their job experience listed in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>City</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3369</id>
+				<title>User should view the city under the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Desired offices locations</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3370</id>
+				<title>User should view the desired office locations under the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Achievements/Key results</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3371</id>
+				<title>User should view the achievements/key results under the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Activate profile] or [Deactivate profile]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3372</id>
+				<title>User should activate their profile by clicking the [Activate Profile] button in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C3373</id>
+				<title>User should deactivate their profile by clicking the [Deactivate Profile] button in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Edit]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3374</id>
+				<title>User should edit their profile by clicking the [Edit] button in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Contact Information</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>Info Icon: &apos;This information...&apos;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3375</id>
+				<title>User should view the information icon with the message: &quot;This information can only be viewed by hiring managers when shared.&quot;</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3376</id>
+				<title>User should view their profile picture in the Contact Information section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>First name&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3377</id>
+				<title>User should fill in the &quot;First Name&quot; input field in the Contact Information section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Last name&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3378</id>
+				<title>User should fill in the &quot;Last Name&quot; input field in the Contact Information section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Linkedin&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3379</id>
+				<title>User should add their LinkedIn profile in the &quot;LinkedIn&quot; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Behance&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3380</id>
+				<title>User should add their Behance profile in the &quot;Behance&quot; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>GitHub&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3381</id>
+				<title>User should add their GitHub profile in the &quot;GitHub&quot; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Save and Preview profile]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3382</id>
+				<title>User should save and preview their profile by clicking the [Save and Preview Profile] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Preferences</name>
+		<description></description>
+										<sections>
+		<section>
+		<name>Notifications toggle</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3383</id>
+				<title>User should toggle notifications on or off in the Preferences section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Privacy policy</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3384</id>
+				<title>User should view and access the &quot;Privacy Policy&quot; in the Preferences section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Sign out&apos; link</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3385</id>
+				<title>User should sign out of their profile by clicking the [Sign Out] link.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Recruiter profile Radio Button</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3386</id>
+				<title>User should select the &quot;Recruiter Profile&quot; radio button to switch to recruiter-specific settings.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3387</id>
+				<title>User should view their profile picture displayed under the Recruiter Profile.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3388</id>
+				<title>User should view their name displayed under the Recruiter Profile.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile status: Active, Inactive</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3389</id>
+				<title>User should view their current status (Active or Inactive) under the Recruiter Profile.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Preview Profile</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3390</id>
+				<title>User should open the &quot;Preview Profile&quot; page by clicking the [Preview Profile] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3391</id>
+				<title>User should view the profile picture in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3392</id>
+				<title>User should view their name in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Status: Active, Inactive</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3393</id>
+				<title>User should view their profile status (Active or Inactive) in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Contact email</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3394</id>
+				<title>User should view their contact email in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Role</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3395</id>
+				<title>User should view their role in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Company name</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3396</id>
+				<title>User should view their company name in the Preview Profile page.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Contact Information</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3398</id>
+				<title>User should open the &quot;Contact Information&quot; page by clicking the [Contact Information] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Info Icon: &apos;This information...&apos;</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3397</id>
+				<title>User should view the information icon with the message: &quot;This information can only be viewed by hiring managers when shared.&quot;</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>User profile picture</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3399</id>
+				<title>User should view their profile picture in the Contact Information section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>First name&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3400</id>
+				<title>User should fill in the &quot;First Name&quot; input field in the Contact Information section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Last name&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3401</id>
+				<title>User should fill in the &quot;Last Name&quot; input field in the Contact Information section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Linkedin&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3402</id>
+				<title>User should add their LinkedIn profile in the &quot;LinkedIn&quot; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Behance&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3403</id>
+				<title>User should add their Behance profile in the &quot;Behance&quot; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>GitHub&apos; field</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3404</id>
+				<title>User should add their GitHub profile in the &quot;GitHub&quot; input field.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>[Save and Preview profile]</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3405</id>
+				<title>User should save and preview their profile by clicking the [Save and Preview Profile] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Preferences</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3408</id>
+				<title>User should open the &quot;Preferences&quot; page by clicking the [Preferences] button.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+								<sections>
+		<section>
+		<name>Notifications toggle</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3406</id>
+				<title>User should toggle notifications on or off in the Preferences section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Privacy policy</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C3407</id>
+				<title>User should view and access the &quot;Privacy Policy&quot; in the Preferences section.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Low</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+			<section>
+		<name>Sign out&apos; link</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1925</id>
+				<title>User should sign out of their profile by clicking the [Sign Out] link.</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>High</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+	</sections>
+			</section>
+	</sections>
+</suite>
