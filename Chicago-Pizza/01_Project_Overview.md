@@ -20,28 +20,7 @@ During this project I performed:
 
 ---
 
-## 🔎 QA Activities
+## 🔎 ## 📂 Documentation Included
 
-- UI validation
-- Form validation testing
-- Order submission flow testing
-- Negative testing scenarios
-- Edge case validation
-
----
-
-## 🛠 Tools Used
-
-- Jira
-- Google Docs
-- Markdown
-- GitHub
-
----
-
-## 📎 Key QA Focus Areas
-
-- Usability issues
-- Functional defects
-- Validation logic errors
-- Workflow inconsistencies
+ - Exploratory testing results
+ - Structured bug reports
