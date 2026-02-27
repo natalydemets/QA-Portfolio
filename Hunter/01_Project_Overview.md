@@ -27,7 +27,7 @@ During this project I created:
 - Requirements analysis
 - Risk identification
 - Functional decomposition
-- Test case design based on user stories
+- Test case design
 - Traceability mapping
 - Permission validation testing
 - Defect reporting and prioritization
