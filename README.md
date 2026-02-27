@@ -1,59 +1,47 @@
-# QA-Portfolio # QA Portfolio – Nataly Demets
+# QA Portfolio — Nataly Demets
 
-Welcome to my QA portfolio repository.
+Welcome to my QA portfolio repository. Here you can review my testing projects and QA documentation for web, mobile, and API.
 
-This repository contains structured QA documentation for multiple web applications, including:
+What you will find here
+Test plans and test documentation
+Requirements analysis and decomposition
+RTM (requirements traceability)
+Permission testing tables
+Bug reports and defect tracking
+STLC documentation
+API testing in Postman
 
-- Test Plans
-- Requirements Analysis
-- Decomposition
-- RTM (Requirement Traceability Matrix)
-- Bug Reports
-- Permission Tables
-- User Stories & Personas
-- STLC Documentation
+Where to start
 
----
+Huntd Mobile Web Testing
+https://github.com/natalydemets/QA-Portfolio/tree/main/Huntd-Mobile-Web-Testing
+My largest project: test plan, decomposition, RTM, permission table, bug reports, and TestRail exports for web and mobile.
 
-## 📁 Projects
+Conduit API Testing
+https://github.com/natalydemets/QA-Portfolio/tree/main/Conduit-API-Testing
+API testing project: Postman collection with pre-request scripts, reusable helpers, and automated checks for each request.
 
-### 🟢 Hunter
-Full-cycle QA documentation including:
-- Test Plan
-- RTM
-- Permission Table
-- Bug Reports
-- Decomposition
+PetStor Project
+https://github.com/natalydemets/QA-Portfolio/tree/main/PetStor-Project
+Small web testing project: requirements, STLC document, and bug report.
 
-### 🟢 Conduit (API Testing)
-- Requirements analysis (Registration page)
-- Test Plan
-- Decomposition
-- API testing via Postman
+Chicago Pizza
+https://github.com/natalydemets/QA-Portfolio/tree/main/Chicago-Pizza
+Web testing and defect documentation using an extended bug report template.
 
-### 🟢 PetStore
-- Extended requirements
-- STLC documentation
-- Bug reports
-- Shielded site analysis
+Requirements Traceability Matrix Demo
+https://github.com/natalydemets/QA-Portfolio/tree/main/Requirements-Traceability-Matrix-Demo
+RTM demo built from user personas and user stories, with mapping to test cases.
 
-### 🟢 Chicago Pizza
-- Bug reports
-- Test documentation
+Tools used
+Postman
+TestRail
+Jira
+Google Sheets / Excel
+Chrome DevTools
+Git and GitHub
+VS Code
+Terminal
 
----
-
-## 🛠 Tools Used
-
-- Postman (API testing)
-- TestRail
-- Jira
-- Git & GitHub
-- Google Docs
-- Markdown
-
----
-
-## 📬 Contact
-
+Contact
 Feel free to contact me for QA collaboration opportunities.
