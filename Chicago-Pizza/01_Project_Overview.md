@@ -1,32 +1,9 @@
-# Chicago Pizza — Web Bug Reporting Project
+In this project I practiced creating clear and detailed bug reports using an extended bug report template. I documented the environment (OS, browser, app version), added reproducible steps, and described expected vs actual results. I also attached evidence links (screenshots) and organized the testing files in a clean GitHub repository structure.
 
-## Project Overview
-
-Chicago Pizza is a web-based food ordering website.
-
-This project focuses on identifying and documenting functional and UI defects.
-
----
-
-## Documentation Included
-
-- Bug Reports
-
----
-
-## QA Activities Performed
-
-- Functional flow testing
-- Form validation checks
-- UI issue detection
-- Error message validation
-- Reproducible bug documentation with severity and priority
-
----
-
-## Tools Used
-
-- Browser DevTools
-- Google Docs
-- Markdown
-- GitHub
+Tools used
+Google Sheets
+Google Drive
+Google Chrome
+Git and GitHub
+VS Code
+Terminal
