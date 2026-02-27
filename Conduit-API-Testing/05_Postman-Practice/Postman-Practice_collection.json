@@ -1,0 +1,4070 @@
+{
+  "info": {
+    "_postman_id": "5630e95a-9920-49d1-8595-937747c682b4",
+    "name": "Postman Practice [Nataly Demets]",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33260717"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Successful sign in",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "",
+                  "createNewUser(false, (response) => {",
+                  "  const email = response.json().user.email;",
+                  "  const password = pm.collectionVariables.get(\"passwordConduit\");",
+                  "",
+                  "  pm.collectionVariables.set(\"emailConduit\", email);",
+                  "  pm.collectionVariables.set(\"passwordConduit\", password);",
+                  "",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "const user = jsonData.user;",
+                  "",
+                  "// Basic checks",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains 'user' object\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "// Property type checks",
+                  "pm.test(\"Token is a string\", function () {",
+                  "    pm.expect(user.token).to.be.a(\"string\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username is a string\", function () {",
+                  "    pm.expect(user.username).to.be.a(\"string\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email is a string\", function () {",
+                  "    pm.expect(user.email).to.be.a(\"string\");",
+                  "});",
+                  "",
+                  "pm.test(\"Bio is null or a string\", function () {",
+                  "    pm.expect(user.bio === null || typeof user.bio === \"string\").to.be.true;",
+                  "});",
+                  "",
+                  "pm.test(\"Image is null or a string\", function () {",
+                  "    pm.expect(user.image === null || typeof user.image === \"string\").to.be.true;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users/login",
+              "host": [
+                "{{BASE_URL}}users"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign in with non-existing credential",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Error message is correct\", function () {",
+                  "    const error = jsonData.errors[\"email or password\"];",
+                  "    pm.expect(error).to.include(\"is invalid\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// 1. Get the helper function as string and evaluate it",
+                  "const createNewUserHelper = pm.collectionVariables.get(\"createNewUser\");",
+                  "eval(createNewUserHelper)();",
+                  "",
+                  "// 2. Generate and save email + use fixed password from collection variable",
+                  "const random = Math.random().toString(36).substring(2, 8);",
+                  "const email = `user_${random}@test.com`;",
+                  "const password = pm.collectionVariables.get(\"passwordConduit\");",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"user\": {\n\t\t\"email\": \"lexofisi@qufy.com\",\n\t\t\"password\": \"123edcv!\"\n\t}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users/login",
+              "host": [
+                "{{BASE_URL}}users"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign in with empty email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Error message for email is correct\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"can't be blank\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.random().toString(36).substring(2, 8);",
+                  "const email = ``;",
+                  "const password = pm.collectionVariables.get(\"passwordConduit\");",
+                  "",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"email\": \"\",\n        \"password\": \"123edcvb\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users/login",
+              "host": [
+                "{{BASE_URL}}users"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign in with empty password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Error message for password is correct\", function () {",
+                  "    const error = jsonData.errors[\"password\"];",
+                  "    pm.expect(error).to.include(\"can't be blank\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.random().toString(36).substring(2, 8);",
+                  "const email = `user_${random}@test.com`;",
+                  "const password = ``;",
+                  "",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"email\": \"lexofisivu@qufy.com\",\n        \"password\": \"\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users/login",
+              "host": [
+                "{{BASE_URL}}users"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Successful sign up",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "const user = jsonData.user;",
+                  "",
+                  "// Save important variables",
+                  "pm.collectionVariables.set(\"tokenConduit\", user.token);",
+                  "pm.collectionVariables.set(\"usernameConduit\", user.username);",
+                  "pm.collectionVariables.set(\"emailConduit\", user.email);",
+                  "",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Token is present\", function () {",
+                  "    pm.expect(user.token).to.be.a(\"string\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username is present and is a string\", function () {",
+                  "    pm.expect(user.username).to.be.a(\"string\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email is present and is a string\", function () {",
+                  "    pm.expect(user.email).to.be.a(\"string\");",
+                  "});",
+                  "",
+                  "pm.test(\"Bio is null or string\", function () {",
+                  "    pm.expect(user.bio === null || typeof user.bio === \"string\").to.be.true;",
+                  "});",
+                  "",
+                  "pm.test(\"Image is null or string\", function () {",
+                  "    pm.expect(user.image === null || typeof user.image === \"string\").to.be.true;",
+                  "});",
+                  "",
+                  "const username = pm.response.json().user.username;",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with taken username",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username error message is correct\", function () {",
+                  "    const error = jsonData.errors[\"username\"];",
+                  "    pm.expect(error).to.include(\"This username is taken.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = 'user_' + Math.random().toString(36).substring(2, 8);",
+                  "const email = 'email_' + Math.random().toString(36).substring(2, 8) + '@test.com';",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);",
+                  "",
+                  "const createNewUserHelper = pm.collectionVariables.get(\"createNewUserNew\");",
+                  "eval(createNewUserHelper)(",
+                  "    username,",
+                  "    'email_' + Math.random().toString(36).substring(2, 8) + '@test.com'",
+                  ");"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with taken email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username format error is shown\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"This email is taken.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = 'user_' + Math.random().toString(36).substring(2, 8);",
+                  "const email = 'email_' + Math.random().toString(36).substring(2, 8) + '@test.com';",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "",
+                  "const createNewUserHelper = pm.collectionVariables.get(\"createNewUserNew\");",
+                  "eval(createNewUserHelper)(",
+                  "    'user_' + Math.random().toString(36).substring(2, 8),",
+                  "    email",
+                  ");"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with username starting from number",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"username\"];",
+                  "    pm.expect(error).to.include(\"Username must start with a letter, have no spaces, and be 2 - 40 characters.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `123user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"123{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with username with 41 symbols",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username length validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"username\"];",
+                  "    pm.expect(error).to.include(\"Username must start with a letter, have no spaces, and be 2 - 40 characters.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const randomString = len => Array.from({ length: len }, () => String.fromCharCode(Math.random() * 26 + 97 | 0)).join('');",
+                  "",
+                  "const username = randomString(41); // Total length = 41",
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with username with spaces",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username validation error for spaces is correct\", function () {",
+                  "    const error = jsonData.errors[\"username\"];",
+                  "    pm.expect(error).to.include(\"Username must start with a letter, have no spaces, and be 2 - 40 characters.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = ` user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with empty username",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username 'Username must start with a letter, have no spaces, and be 2 - 40 characters.' error is correct\", function () {",
+                  "    const error = jsonData.errors[\"username\"];",
+                  "    pm.expect(error).to.include(\"Username must start with a letter, have no spaces, and be 2 - 40 characters.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = '';",
+                  "const email = 'email_' + Math.random().toString(36).substring(2, 8) + '@test.com';",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with empty email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"This email does not seem valid.\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = 'user_' + Math.random().toString(36).substring(2, 8);",
+                  "const email = '';",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with email without @",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"This email does not seem valid.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = 'user_' + Math.random().toString(36).substring(2, 8);",
+                  "const email = 'email_' + Math.random().toString(36).substring(2, 8) + 'test.com';",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with email without .",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"This email does not seem valid.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mailcom`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with email without name part",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"This email does not seem valid.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"username\": \"{{usernameConduit}}\",\n    \"email\": \"{{emailConduit}}\",\n    \"password\": \"{{passwordConduit}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with email with more than 254 symbols",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"email\"];",
+                  "    pm.expect(error).to.include(\"This email does not seem valid.\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "",
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = Array.from({length: 245}, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('') + '@test.com';",
+                  "",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sign up with empty password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 422\", function () {",
+                  "    pm.response.to.have.status(422);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Error object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"errors\");",
+                  "});",
+                  "",
+                  "pm.test(\"Password validation error is correct\", function () {",
+                  "    const error = jsonData.errors[\"password\"];",
+                  "    pm.expect(error).to.include(\"can't be blank\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = ``;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{usernameConduit}}\",\n        \"email\": \"{{emailConduit}}\",\n        \"password\": \"{{passwordConduit}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users",
+              "host": [
+                "{{BASE_URL}}users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get info about user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"User object is present\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "pm.test(\"User properties are correct\", function () {",
+                  "    const user = jsonData.user;",
+                  "    pm.expect(user).to.have.property(\"username\").that.is.a(\"string\");",
+                  "    pm.expect(user).to.have.property(\"email\").that.includes(\"@\");",
+                  "    pm.expect(user).to.have.property(\"token\").that.is.a(\"string\");",
+                  "    pm.expect(user).to.have.property(\"bio\");",
+                  "    pm.expect(user).to.have.property(\"image\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update info about user: image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"User object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "pm.test(\"Image was updated\", function () {",
+                  "    pm.expect(jsonData.user.image).to.eql(\"https://example.com/new-profile-image.jpg\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"image\": \"https://example.com/new-profile-image.jpg\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update info about user: bio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"User object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "pm.test(\"Bio was updated\", function () {",
+                  "    pm.expect(jsonData.user.bio).to.eql(\"This is my new bio!\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"bio\": \"This is my new bio!\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update info about user: username",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"User object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "pm.test(\"Username was updated\", function () {",
+                  "    const expectedUsername = pm.variables.get(\"newUsername\");",
+                  "    pm.expect(jsonData.user.username).to.eql(expectedUsername);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "const username = (pm.variables.replaceIn('{{$randomLastName}}') + Math.floor(Math.random() * 1000)).toLowerCase();",
+                  "",
+                  "pm.collectionVariables.set(\"newUsername\", username);",
+                  "",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"username\": \"{{newUsername}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update info about user: email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"User object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "pm.test(\"Email was updated\", function () {",
+                  "    const expectedEmail = pm.variables.get(\"newEmail\");",
+                  "    pm.expect(jsonData.user.email).to.eql(expectedEmail);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "// Generate updated email",
+                  "const newEmail = `newuser${random}${Math.floor(Math.random() * 1000)}@mail.com`.toLowerCase();",
+                  "",
+                  "// Set to 'newEmail' as used in body",
+                  "pm.collectionVariables.set(\"newEmail\", newEmail);",
+                  "",
+                  "// Optional if needed elsewhere:",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"email\": \"{{newEmail}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update info about user: password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"User object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"user\");",
+                  "});",
+                  "",
+                  "pm.test(\"Token is still valid after password change\", function () {",
+                  "    pm.expect(jsonData.user.token).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "const randomPassword = \"Pass\" + Math.floor(Math.random() * 10000);",
+                  "",
+                  "pm.collectionVariables.set(\"newPassword\", randomPassword);",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"password\": \"{{newPassword}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update info about user without authorization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains 'Unauthorized'\", function () {",
+                  "    const responseText = pm.response.text();",
+                  "    pm.expect(responseText).to.include(\"Unauthorized\");",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const random = Math.floor(Math.random() * 100000);",
+                  "const username = `user${random}`;",
+                  "const email = `user${random}@mail.com`;",
+                  "const password = `W@lterWh1te`;",
+                  "",
+                  "pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "pm.collectionVariables.set(\"emailConduit\", email);",
+                  "pm.collectionVariables.set(\"passwordConduit\", password);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"bio\": \"Unauthorized update attempt!\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}user",
+              "host": [
+                "{{BASE_URL}}user"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "Create an article",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.collectionVariables.set('slugConduit', pm.response.json().article.slug);",
+                  "",
+                  "const deleteArticleHelper = pm.collectionVariables.get('deleteArticle');",
+                  "const deleteArticle = eval(deleteArticleHelper);",
+                  "deleteArticle();",
+                  "",
+                  "// === Tests ===",
+                  "pm.test('Assert status code is 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Title is correct\", function () {",
+                  "    pm.expect(jsonData.article.title).to.eql(pm.collectionVariables.get('randomTitle'));",
+                  "});",
+                  "",
+                  "pm.test(\"Description is correct\", function () {",
+                  "    pm.expect(jsonData.article.description).to.eql(pm.collectionVariables.get('randomDescription'));",
+                  "});",
+                  "",
+                  "pm.test(\"Body is correct\", function () {",
+                  "    pm.expect(jsonData.article.body).to.eql(pm.collectionVariables.get('randomBody'));",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUserHelper = pm.collectionVariables.get('createNewUser');",
+                  "const createNewUser = eval(createNewUserHelper);",
+                  "createNewUser();",
+                  "",
+                  "const randomTitle = 'Title ' + Math.random().toString(36).substring(2, 8);",
+                  "const randomDescription = 'Description ' + Math.random().toString(36).substring(2, 8);",
+                  "const randomBody = 'Body ' + Math.random().toString(36).substring(2, 8);",
+                  "",
+                  "pm.collectionVariables.set('randomTitle', randomTitle);",
+                  "pm.collectionVariables.set('randomDescription', randomDescription);",
+                  "pm.collectionVariables.set('randomBody', randomBody);",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"article\": {\n        \"title\": \"{{randomTitle}}\",\n        \"description\": \"{{randomDescription}}\",\n        \"body\": \"{{randomBody}}\",\n        \"tagList\": []\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}articles",
+              "host": [
+                "{{BASE_URL}}articles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update an article",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.collectionVariables.set('slugConduit', pm.response.json().article.slug);",
+                  "",
+                  "const deleteArticleHelper = pm.collectionVariables.get('deleteArticle');",
+                  "const deleteArticle = eval(deleteArticleHelper);",
+                  "deleteArticle();",
+                  "",
+                  "// === Tests ===",
+                  "pm.test('Assert status code is 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const data = pm.response.json();",
+                  "",
+                  "pm.test('Title is updated', () => {",
+                  "  pm.expect(data.article.title).to.eql(pm.collectionVariables.get('updatedTitle'));",
+                  "});",
+                  "",
+                  "pm.test('Description is updated', () => {",
+                  "  pm.expect(data.article.description).to.eql(pm.collectionVariables.get('updatedDescription'));",
+                  "});",
+                  "",
+                  "pm.test('Body is updated', () => {",
+                  "  pm.expect(data.article.body).to.eql(pm.collectionVariables.get('updatedBody'));",
+                  "});",
+                  "",
+                  "pm.test('Article has \"updatedAt\" field of type string', () => {",
+                  "  pm.expect(data.article).to.have.property('updatedAt').that.is.a('string');",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "const afterCreateUser = () => {",
+                  "    createArticle(",
+                  "        pm.collectionVariables.get(\"tokenConduit\")  ",
+                  "    );",
+                  "}",
+                  "",
+                  "createNewUser(false, afterCreateUser);",
+                  "",
+                  "const updatedTitle = 'Updated_' + Math.random().toString(36).substring(2, 6);",
+                  "const updatedDescription = 'UpdatedDesc_' + Math.random().toString(36).substring(2, 6);",
+                  "const updatedBody = 'UpdatedBody_' + Math.random().toString(36).substring(2, 6);",
+                  "",
+                  "pm.collectionVariables.set('updatedTitle', updatedTitle);",
+                  "pm.collectionVariables.set('updatedDescription', updatedDescription);",
+                  "pm.collectionVariables.set('updatedBody', updatedBody);",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"article\": {\n        \"title\": \"{{updatedTitle}}\",\n        \"description\": \"{{updatedDescription}}\",\n        \"body\": \"{{updatedBody}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete an article",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "const afterCreateUser = () => {",
+                  "    createArticle(",
+                  "        pm.collectionVariables.get(\"tokenConduit\")  ",
+                  "    );",
+                  "}",
+                  "",
+                  "createNewUser(false, afterCreateUser);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get an article",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Видалення статті через helper",
+                  "const deleteArticleHelper = pm.collectionVariables.get('deleteArticle');",
+                  "const deleteArticle = eval(deleteArticleHelper);",
+                  "deleteArticle();",
+                  "",
+                  "// Статус код",
+                  "pm.test('Assert status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Assert response time is less than 1000ms', () => {",
+                  "    pm.expect(pm.response.responseTime)",
+                  "      .to.be.below(1000);",
+                  "  });",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "const article = jsonData.article;",
+                  "",
+                  "// ==== Slug ====",
+                  "pm.test('Slug exists and is a string', function () {",
+                  "    pm.expect(article.slug).to.be.a('string');",
+                  "});",
+                  "",
+                  "// ==== Title ====",
+                  "pm.test('Title is correct', function () {",
+                  "    pm.expect(article.title).to.eql(pm.collectionVariables.get('articleTitle'));",
+                  "});",
+                  "",
+                  "// ==== Description ====",
+                  "pm.test('Description is correct', function () {",
+                  "    pm.expect(article.description).to.eql(pm.collectionVariables.get('articleDescription'));",
+                  "});",
+                  "",
+                  "// ==== Body ====",
+                  "pm.test('Body is correct', function () {",
+                  "    pm.expect(article.body).to.eql(pm.collectionVariables.get('articleBody'));",
+                  "});",
+                  "",
+                  "// ==== CreatedAt ====",
+                  "pm.test('CreatedAt exists and is a string', function () {",
+                  "    pm.expect(article).to.have.property('createdAt').that.is.a('string');",
+                  "});",
+                  "",
+                  "// ==== UpdatedAt ====",
+                  "pm.test('UpdatedAt exists and is a string', function () {",
+                  "    pm.expect(article).to.have.property('updatedAt').that.is.a('string');",
+                  "});",
+                  "",
+                  "// ==== TagList ====",
+                  "pm.test('TagList exists and is an array', function () {",
+                  "    pm.expect(article.tagList).to.be.an('array');",
+                  "});",
+                  "",
+                  "// ==== Favorited ====",
+                  "pm.test('Favorited exists and is a boolean', function () {",
+                  "    pm.expect(article.favorited).to.be.a('boolean');",
+                  "});",
+                  "",
+                  "// ==== FavoritesCount ====",
+                  "pm.test('FavoritesCount exists and is a number', function () {",
+                  "    pm.expect(article.favoritesCount).to.be.a('number');",
+                  "});",
+                  "",
+                  "// ==== Author ====",
+                  "pm.test('Author exists and has correct structure', function () {",
+                  "    pm.expect(article).to.have.property('author');",
+                  "    pm.expect(article.author).to.have.property('username').that.is.a('string');",
+                  "    pm.expect(article.author).to.have.property('bio'); // can be null",
+                  "    pm.expect(article.author).to.have.property('image').that.is.a('string');",
+                  "    pm.expect(article.author).to.have.property('following').that.is.a('boolean');",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "const afterCreateUser = () => {",
+                  "    createArticle(",
+                  "        pm.collectionVariables.get(\"tokenConduit\")  ",
+                  "    );",
+                  "}",
+                  "",
+                  "createNewUser(false, afterCreateUser);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get articles",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Assert status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Assert response time is less than 1000ms', () => {",
+                  "    pm.expect(pm.response.responseTime)",
+                  "      .to.be.below(1000);",
+                  "  });",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "const article = jsonData.articles[0];",
+                  "",
+                  "// === Array Check ===",
+                  "pm.test('Articles array exists', function () {",
+                  "    pm.expect(jsonData.articles).to.be.an('array');",
+                  "});",
+                  "",
+                  "// === Individual Article Properties ===",
+                  "pm.test('Slug exists and is a string', function () {",
+                  "    pm.expect(article.slug).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('Title exists and is a string', function () {",
+                  "    pm.expect(article.title).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('Description exists and is a string', function () {",
+                  "    pm.expect(article.description).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('Body exists and is a string', function () {",
+                  "    pm.expect(article.body).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('CreatedAt exists and is a string', function () {",
+                  "    pm.expect(article.createdAt).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('UpdatedAt exists and is a string', function () {",
+                  "    pm.expect(article.updatedAt).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('TagList exists and is an array', function () {",
+                  "    pm.expect(article.tagList).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Favorited exists and is a boolean', function () {",
+                  "    pm.expect(article.favorited).to.be.a('boolean');",
+                  "});",
+                  "",
+                  "pm.test('FavoritesCount exists and is a number', function () {",
+                  "    pm.expect(article.favoritesCount).to.be.a('number');",
+                  "});",
+                  "",
+                  "// === Author Object ===",
+                  "pm.test('Author exists and is an object', function () {",
+                  "    pm.expect(article.author).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.test('Author username is a string', function () {",
+                  "    pm.expect(article.author.username).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('Author image is a string', function () {",
+                  "    pm.expect(article.author.image).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test('Author following is a boolean', function () {",
+                  "    pm.expect(article.author.following).to.be.a('boolean');",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}articles",
+              "host": [
+                "{{BASE_URL}}articles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get articles from Your feed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Assert status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test('Response has articles array', function () {",
+                  "    pm.expect(jsonData).to.have.property('articles').that.is.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Response has articlesCount', function () {",
+                  "    pm.expect(jsonData).to.have.property('articlesCount').that.is.a('number');",
+                  "});",
+                  "",
+                  "// const jsonData = pm.response.json();",
+                  "// const article = jsonData.articles[0];",
+                  "",
+                  "// // === Array Check ===",
+                  "// pm.test('Articles array exists', function () {",
+                  "//     pm.expect(jsonData.articles).to.be.an('array');",
+                  "// });",
+                  "",
+                  "// // === Individual Article Properties ===",
+                  "// pm.test('Slug exists and is a string', function () {",
+                  "//     pm.expect(article.slug).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('Title exists and is a string', function () {",
+                  "//     pm.expect(article.title).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('Description exists and is a string', function () {",
+                  "//     pm.expect(article.description).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('Body exists and is a string', function () {",
+                  "//     pm.expect(article.body).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('CreatedAt exists and is a string', function () {",
+                  "//     pm.expect(article.createdAt).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('UpdatedAt exists and is a string', function () {",
+                  "//     pm.expect(article.updatedAt).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('TagList exists and is an array', function () {",
+                  "//     pm.expect(article.tagList).to.be.an('array');",
+                  "// });",
+                  "",
+                  "// pm.test('Favorited exists and is a boolean', function () {",
+                  "//     pm.expect(article.favorited).to.be.a('boolean');",
+                  "// });",
+                  "",
+                  "// pm.test('FavoritesCount exists and is a number', function () {",
+                  "//     pm.expect(article.favoritesCount).to.be.a('number');",
+                  "// });",
+                  "",
+                  "// // === Author Object ===",
+                  "// pm.test('Author exists and is an object', function () {",
+                  "//     pm.expect(article.author).to.be.an('object');",
+                  "// });",
+                  "",
+                  "// pm.test('Author username is a string', function () {",
+                  "//     pm.expect(article.author.username).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('Author image is a string', function () {",
+                  "//     pm.expect(article.author.image).to.be.a('string');",
+                  "// });",
+                  "",
+                  "// pm.test('Author following is a boolean', function () {",
+                  "//     pm.expect(article.author.following).to.be.a('boolean');",
+                  "// });",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "// const createNewUserNew = eval(pm.collectionVariables.get('createNewUserNew'));",
+                  "const createArticle = eval(pm.collectionVariables.get('createArticle'));",
+                  "const followUser = (usernameToFollow, token) => {",
+                  "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+                  "  const req = {",
+                  "    url: `${BASE_URL}profiles/${usernameToFollow}/follow`,",
+                  "    method: 'POST',",
+                  "    header: {",
+                  "      'Content-Type': 'application/json',",
+                  "      'Authorization': 'Token ' + token",
+                  "    }",
+                  "  };",
+                  "  pm.sendRequest(req, (err, res) => {",
+                  "    console.log(\"✅ Follow done:\", res.json());",
+                  "  });",
+                  "};",
+                  "",
+                  "// 1. Create User 1 and their article",
+                  "createNewUser(false, (response) => {",
+                  "  const username = response.json().user.username;",
+                  "  pm.collectionVariables.set(\"usernameUser1\", username);",
+                  "",
+                  "  createArticle(pm.collectionVariables.get('tokenConduit'), () => {",
+                  "    // 2. Create User 2",
+                  "    const username = 'user_' + Math.random().toString(36).substring(2, 8);",
+                  "    const email = username + '@test.com';",
+                  "",
+                  "    createNewUser(true, (response) => {",
+                  "      pm.collectionVariables.set(\"tokenConduit\", response.json().user.token);",
+                  "",
+                  "      // 3. Follow User 1",
+                  "      followUser(pm.collectionVariables.get(\"usernameUser1\"), pm.collectionVariables.get(\"tokenConduit\"));",
+                  "    });",
+                  "  });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/feed?limit=10&offset=0",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "feed"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get articles from Global feed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Assert status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response time is under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test('Response has articles array', function () {",
+                  "    pm.expect(jsonData).to.have.property('articles').that.is.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Response has articlesCount', function () {",
+                  "    pm.expect(jsonData).to.have.property('articlesCount').that.is.a('number');",
+                  "});",
+                  "",
+                  "// === Validate structure of first article (if any) ===",
+                  "if (jsonData.articles.length > 0) {",
+                  "    const article = jsonData.articles[0];",
+                  "",
+                  "    pm.test('Article has slug', () => {",
+                  "        pm.expect(article).to.have.property('slug').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has title', () => {",
+                  "        pm.expect(article).to.have.property('title').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has description', () => {",
+                  "        pm.expect(article).to.have.property('description').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has body', () => {",
+                  "        pm.expect(article).to.have.property('body').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has createdAt', () => {",
+                  "        pm.expect(article).to.have.property('createdAt').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has updatedAt', () => {",
+                  "        pm.expect(article).to.have.property('updatedAt').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has tagList', () => {",
+                  "        pm.expect(article).to.have.property('tagList').that.is.an('array');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has favorited', () => {",
+                  "        pm.expect(article).to.have.property('favorited').that.is.a('boolean');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has favoritesCount', () => {",
+                  "        pm.expect(article).to.have.property('favoritesCount').that.is.a('number');",
+                  "    });",
+                  "",
+                  "    pm.test('Article has author object', () => {",
+                  "        pm.expect(article).to.have.property('author').that.is.an('object');",
+                  "    });",
+                  "",
+                  "    pm.test('Author has username', () => {",
+                  "        pm.expect(article.author).to.have.property('username').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Author has image', () => {",
+                  "        pm.expect(article.author).to.have.property('image').that.is.a('string');",
+                  "    });",
+                  "",
+                  "    pm.test('Author has following', () => {",
+                  "        pm.expect(article.author).to.have.property('following').that.is.a('boolean');",
+                  "    });",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUserHelper = pm.collectionVariables.get(\"createNewUser\");",
+                  "eval(createNewUserHelper)();",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}articles?limit=10&offset=0",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get articles by tag",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "const firstTag = jsonData.articles[0].tagList[0];",
+                  "pm.collectionVariables.set(\"tagConduit\", firstTag);",
+                  "",
+                  "function testGetArticlesByTag() {",
+                  "    pm.test('Assert status code is 200', function () {",
+                  "        pm.response.to.have.status(200);",
+                  "    });",
+                  "",
+                  "    pm.test('Response time is under 1000ms', function () {",
+                  "        pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "    });",
+                  "",
+                  "    const jsonData = pm.response.json();",
+                  "",
+                  "    pm.test('Response has articles array', function () {",
+                  "        pm.expect(jsonData).to.have.property('articles').that.is.an('array');",
+                  "    });",
+                  "",
+                  "    pm.test('Response has articlesCount', function () {",
+                  "        pm.expect(jsonData).to.have.property('articlesCount').that.is.a('number');",
+                  "    });",
+                  "",
+                  "    if (jsonData.articles.length > 0) {",
+                  "        const article = jsonData.articles[0];",
+                  "        const tag = pm.request.url.query.get('tag');",
+                  "",
+                  "        pm.test('Article has slug', () => {",
+                  "            pm.expect(article).to.have.property('slug').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has title', () => {",
+                  "            pm.expect(article).to.have.property('title').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has description', () => {",
+                  "            pm.expect(article).to.have.property('description').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has body', () => {",
+                  "            pm.expect(article).to.have.property('body').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has createdAt', () => {",
+                  "            pm.expect(article).to.have.property('createdAt').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has updatedAt', () => {",
+                  "            pm.expect(article).to.have.property('updatedAt').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has favorited', () => {",
+                  "            pm.expect(article).to.have.property('favorited').that.is.a('boolean');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has favoritesCount', () => {",
+                  "            pm.expect(article).to.have.property('favoritesCount').that.is.a('number');",
+                  "        });",
+                  "",
+                  "        pm.test('Article has author object', () => {",
+                  "            pm.expect(article).to.have.property('author').that.is.an('object');",
+                  "        });",
+                  "",
+                  "        pm.test('Author has username', () => {",
+                  "            pm.expect(article.author).to.have.property('username').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Author has image', () => {",
+                  "            pm.expect(article.author).to.have.property('image').that.is.a('string');",
+                  "        });",
+                  "",
+                  "        pm.test('Author has following', () => {",
+                  "            pm.expect(article.author).to.have.property('following').that.is.a('boolean');",
+                  "        });",
+                  "    }",
+                  "}",
+                  "",
+                  "testGetArticlesByTag();",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUserHelper = pm.collectionVariables.get(\"createNewUser\");",
+                  "eval(createNewUserHelper)();"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}articles?limit=10&{{tagConduit}}&offset=0",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "{{tagConduit}}",
+                  "value": null
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create an article without authorization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 401', function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});",
+                  "",
+                  "pm.test('Response time is under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "if (pm.response.headers.get(\"Content-Type\")?.includes(\"application/json\")) {",
+                  "    const jsonData = pm.response.json();",
+                  "",
+                  "    pm.test('Error message is present', function () {",
+                  "        pm.expect(jsonData).to.have.property('errors');",
+                  "    });",
+                  "} else {",
+                  "    pm.test('Response is plain text Unauthorized', function () {",
+                  "        pm.expect(pm.response.text()).to.include('Unauthorized');",
+                  "    });",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"article\": {\n        \"title\": \"Unauthorized Article\",\n        \"description\": \"This article should not be created\",\n        \"body\": \"Testing unauthorized article creation\",\n        \"tagList\": [\n            \"test\",\n            \"unauthorized\"\n        ]\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}articles",
+              "host": [
+                "{{BASE_URL}}articles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete an article without authorization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const responseText = pm.response.text();",
+                  "pm.test(\"Unauthorized error is present\", function () {",
+                  "    pm.expect(responseText).to.include(\"Unauthorized\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get('createArticle'));",
+                  "",
+                  "const afterCreateArticle = () => {",
+                  "  // видаляємо токен після створення статті",
+                  "  pm.collectionVariables.set(\"tokenConduit\", null);",
+                  "};",
+                  "",
+                  "const afterCreateUser = () => {",
+                  "  const token = pm.collectionVariables.get(\"tokenConduit\");",
+                  "  createArticle(token, afterCreateArticle);",
+                  "};",
+                  "",
+                  "createNewUser(false, afterCreateUser);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete an article of another user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 403\", function () {",
+                  "    pm.response.to.have.status(403);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body contains 'Forbidden'\", function () {",
+                  "    pm.expect(pm.response.text()).to.include(\"Forbidden\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get('createArticle'));",
+                  "const createNewUserNew = eval(pm.collectionVariables.get('createNewUserNew'));",
+                  "",
+                  "const afterCreateUser = () => {",
+                  "  createArticle(pm.collectionVariables.get(\"tokenConduit\"), () => {",
+                  "    const newUsername = 'user_' + Math.random().toString(36).substring(2, 8);",
+                  "    const newEmail = 'email_' + Math.random().toString(36).substring(2, 8) + '@test.com';",
+                  "",
+                  "    createNewUserNew(newUsername, newEmail, (response) => {",
+                  "      pm.collectionVariables.set(\"tokenNotAuth\", response.json().user.token);",
+                  "    });",
+                  "  });",
+                  "};",
+                  "",
+                  "createNewUser(false, afterCreateUser);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenNotAuth}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete non-existing article",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "// ✅ Validate response body contains 'Not Found' message",
+                  "pm.test(\"Response contains 'Not Found'\", function () {",
+                  "    pm.expect(pm.response.text()).to.include(\"Not Found\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/non-existing",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "non-existing"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [
+              "// const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+              "// createNewUser();",
+              "",
+              "// const title = 'Title_' + Math.random().toString(36).substring(2, 6);",
+              "// const description = 'Desc_' + Math.random().toString(36).substring(2, 6);",
+              "// const body = 'Body_' + Math.random().toString(36).substring(2, 6);",
+              "",
+              "// pm.collectionVariables.set('randomTitle', title);",
+              "// pm.collectionVariables.set('randomDescription', description);",
+              "// pm.collectionVariables.set('randomBody', body);",
+              "",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get info about profile",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "// Якщо статус 200, перевіряємо структуру JSON",
+                  "if (pm.response.code === 200) {",
+                  "    const jsonData = pm.response.json();",
+                  "",
+                  "    pm.test(\"Profile object is present\", function () {",
+                  "        pm.expect(jsonData).to.have.property(\"profile\");",
+                  "    });",
+                  "",
+                  "    pm.test(\"Profile has 'username'\", function () {",
+                  "        pm.expect(jsonData.profile).to.have.property(\"username\");",
+                  "    });",
+                  "",
+                  "    pm.test(\"Profile has 'bio'\", function () {",
+                  "        pm.expect(jsonData.profile).to.have.property(\"bio\");",
+                  "    });",
+                  "",
+                  "    pm.test(\"Profile has 'image'\", function () {",
+                  "        pm.expect(jsonData.profile).to.have.property(\"image\");",
+                  "    });",
+                  "",
+                  "    pm.test(\"Profile has 'following'\", function () {",
+                  "        pm.expect(jsonData.profile).to.have.property(\"following\");",
+                  "    });",
+                  "",
+                  "} else {",
+                  "    console.warn(\"Skipping JSON validation — status code is not 200\");",
+                  "}",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "",
+                  "createNewUser(false, (res) => {",
+                  "  pm.collectionVariables.set('usernameConduit', res.json().user.username);",
+                  "});",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "// // 1. Get the helper function from collection-level variable and evaluate it",
+                  "// const createNewUserHelper = pm.collectionVariables.get(\"createNewUser\");",
+                  "// const createNewUser = eval(\"(\" + createNewUserHelper + \")\");",
+                  "",
+                  "// // 2. Generate unique username, email and get fixed password",
+                  "// const random = Math.random().toString(36).substring(2, 8);",
+                  "// const username = `user_${random}`;",
+                  "// const email = `user_${random}@test.com`;",
+                  "// const password = pm.collectionVariables.get(\"passwordConduit\");",
+                  "",
+                  "// // 3. Save email/password/username for reference",
+                  "// pm.collectionVariables.set(\"emailConduit\", email);",
+                  "// pm.collectionVariables.set(\"usernameConduit\", username);",
+                  "",
+                  "",
+                  "// // 4. Create a user with those credentials",
+                  "// const BASE_URL = pm.collectionVariables.get(\"BASE_URL\");",
+                  "// const request = {",
+                  "//   url: `${BASE_URL}users`,",
+                  "//   method: 'POST',",
+                  "//   header: { 'Content-Type': 'application/json' },",
+                  "//   body: {",
+                  "//     mode: 'raw',",
+                  "//     raw: JSON.stringify({",
+                  "//       user: {",
+                  "//         username: username,",
+                  "//         email: email,",
+                  "//         password: password",
+                  "//       }",
+                  "//     })",
+                  "//   }",
+                  "// };",
+                  "",
+                  "// // 5. Register the user and set the token",
+                  "// pm.sendRequest(request, (err, res) => {",
+                  "//   if (err || !res.json().user) {",
+                  "//     console.log(\"❌ Registration error:\", err || res.text());",
+                  "//     return;",
+                  "//   }",
+                  "",
+                  "//   const token = res.json().user.token;",
+                  "//   pm.collectionVariables.set(\"tokenConduit\", token);",
+                  "// });",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}profiles/{{usernameConduit}}",
+              "host": [
+                "{{BASE_URL}}profiles"
+              ],
+              "path": [
+                "{{usernameConduit}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Follow the user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "pm.test(\"Followed user data exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"profile\");",
+                  "    pm.expect(jsonData.profile).to.have.property(\"following\", true);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUserHelper = pm.collectionVariables.get('createNewUser');",
+                  "eval(createNewUserHelper)(true);",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}profiles/{{userToFollow}}/follow",
+              "host": [
+                "{{BASE_URL}}profiles"
+              ],
+              "path": [
+                "{{userToFollow}}",
+                "follow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unfollow the user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Unfollowed user profile exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"profile\");",
+                  "});",
+                  "",
+                  "pm.test(\"Following is false\", function () {",
+                  "    pm.expect(jsonData.profile).to.have.property(\"following\", false);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const followRequest = (userToFollow, authToken) => {",
+                  "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+                  "  const url = BASE_URL + \"profiles/\" + userToFollow + '/follow';",
+                  "",
+                  "  const request = {",
+                  "    url: url,",
+                  "    method: 'POST',",
+                  "    header: {",
+                  "        'Content-Type': 'application/json',",
+                  "        'Authorization': authToken",
+                  "    },",
+                  "  };",
+                  "",
+                  "  pm.sendRequest(request, (error, response) => {",
+                  "    console.log(\"Following Is Done :\", response)",
+                  "  });",
+                  "};",
+                  "",
+                  "// 1. Get the helper function to create users",
+                  "const createNewUserHelper = pm.collectionVariables.get('createNewUser');",
+                  "const createNewUser = eval(\"(\" + createNewUserHelper + \")\");",
+                  "",
+                  "createNewUser(false); // Create user to perform folllowing",
+                  "console.log(\"Registering our user\")",
+                  "",
+                  "",
+                  "createNewUser(true); // Create user to follow",
+                  "console.log(\"Registering User To follow\");",
+                  "",
+                  "setTimeout(()=>{",
+                  "    var user = pm.collectionVariables.get('userToFollow');",
+                  "    var token = \"Token \" + pm.collectionVariables.get('tokenConduit');",
+                  "",
+                  "    followRequest(user, token);",
+                  "}, 1000);",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}profiles/{{userToFollow}}/follow",
+              "host": [
+                "{{BASE_URL}}profiles"
+              ],
+              "path": [
+                "{{userToFollow}}",
+                "follow"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tags",
+      "item": [
+        {
+          "name": "Get tags",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Tags list exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"tags\");",
+                  "});",
+                  "",
+                  "pm.test(\"Tags is a non-empty array\", function () {",
+                  "    pm.expect(jsonData.tags).to.be.an(\"array\").that.is.not.empty;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}tags",
+              "host": [
+                "{{BASE_URL}}tags"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Get comments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains 'comments' array\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"comments\");",
+                  "    pm.expect(jsonData.comments).to.be.an(\"array\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get('createArticle'));",
+                  "",
+                  "// Set tokenConduit to null for unauth",
+                  "pm.collectionVariables.set(\"tokenConduit\", null);",
+                  "",
+                  "// Step 1: Create user and pass token to article creator",
+                  "createNewUser(false, (response) => {",
+                  "  const token = response.json().user.token;",
+                  "",
+                  "  createArticle(token, (slug) => {",
+                  "    console.log(\"Ready to test unauthorized comment fetch\");",
+                  "    });",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}/comments",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}",
+                "comments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post a comment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Comment object exists\", function () {",
+                  "    pm.expect(jsonData).to.have.property(\"comment\");",
+                  "});",
+                  "",
+                  "pm.test(\"Comment body is correct\", function () {",
+                  "    pm.expect(jsonData.comment.body).to.eql(\"This is my test comment!\");",
+                  "});",
+                  "",
+                  "pm.test(\"Author username exists\", function () {",
+                  "    pm.expect(jsonData.comment.author).to.have.property(\"username\");",
+                  "});",
+                  "",
+                  "pm.collectionVariables.set('commentId', pm.response.json().comment.id);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "",
+                  "const afterCreateArticle = () => {",
+                  "   console.log(\"Article is created\");",
+                  "}",
+                  "",
+                  "const afterCreateUser = () => {",
+                  "    createArticle(",
+                  "        pm.collectionVariables.get(\"tokenConduit\"), ",
+                  "        afterCreateArticle",
+                  "    );",
+                  "}",
+                  "",
+                  "createNewUser(false, afterCreateUser);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"This is my test comment!\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}/comments",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}",
+                "comments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a comment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// ✅ Check status code is 204 (No Content)",
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  "",
+                  "// ✅ Ensure response body is empty",
+                  "pm.test(\"Response body is empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.be.empty;",
+                  "});",
+                  "",
+                  "// ✅ Validate response time is acceptable",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "const createComment = eval(pm.collectionVariables.get(\"createComment\"));",
+                  "",
+                  "createNewUser(false, () => {",
+                  "  const token = pm.collectionVariables.get('tokenConduit');",
+                  "",
+                  "  // Step 2: Create article",
+                  "  createArticle(token, (slug) => {",
+                  "    console.log(\"Article has been created with slug: \" + slug);",
+                  "",
+                  "    // Step 3: Post comment",
+                  "    createComment(token, slug, (commentId) => {",
+                  "       pm.collectionVariables.set(\"commentId\", commentId);",
+                  "       console.log(\"✅ Comment created with ID:\", commentId);",
+                  "    });",
+                  "  });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}/comments/{{commentId}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}",
+                "comments",
+                "{{commentId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a comment of another user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// ✅ Check for 403 Forbidden",
+                  "pm.test(\"Status code is 403\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(403);",
+                  "});",
+                  "",
+                  "// ✅ Check response time under 1000ms",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "// ✅ Check error message contains 'forbidden'",
+                  "pm.test(\"Error message contains 'forbidden'\", function () {",
+                  "    const body = pm.response.text();",
+                  "    pm.expect(body.toLowerCase()).to.include(\"forbidden\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "const createComment = eval(pm.collectionVariables.get(\"createComment\"));",
+                  "",
+                  "createNewUser(false, (response) => { // It's true autor of Article and comment",
+                  "",
+                  "    const token = response.json().user.token;",
+                  "",
+                  "    createNewUser(false, (response) => { // It's the person who tries to relete comment",
+                  "    ",
+                  "        // Step 2: Create article",
+                  "        createArticle(token, (slug) => {",
+                  "            console.log(\"Article has been created with slug: \" + slug);",
+                  "",
+                  "            // Step 3: Post comment",
+                  "            createComment(token, slug, (commentId) => {",
+                  "            pm.collectionVariables.set(\"commentId\", commentId);",
+                  "            console.log(\"✅ Comment created with ID:\", commentId);",
+                  "            });",
+                  "        });",
+                  "    });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{tokenConduit}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}/comments/{{commentId}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}",
+                "comments",
+                "{{commentId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a comment without authorization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// ✅ Check for 401 Unauthorized",
+                  "pm.test(\"Status code is 401\", function () {",
+                  "    pm.expect(pm.response.code).to.eql(401);",
+                  "});",
+                  "",
+                  "// ✅ Check response time under 1000ms",
+                  "pm.test(\"Response time is less than 1000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "// ✅ Check error message contains 'unauthorized'",
+                  "pm.test(\"Error message contains 'unauthorized'\", function () {",
+                  "    const body = pm.response.text();",
+                  "    pm.expect(body.toLowerCase()).to.include(\"unauthorized\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const createNewUser = eval(pm.collectionVariables.get('createNewUser'));",
+                  "const createArticle = eval(pm.collectionVariables.get(\"createArticle\"));",
+                  "const createComment = eval(pm.collectionVariables.get(\"createComment\"));",
+                  "",
+                  "createNewUser(false, () => {",
+                  "  const token = pm.collectionVariables.get('tokenConduit');",
+                  "",
+                  "  // Step 2: Create article",
+                  "  createArticle(token, (slug) => {",
+                  "    console.log(\"Article has been created with slug: \" + slug);",
+                  "",
+                  "    // Step 3: Post comment",
+                  "    createComment(token, slug, (commentId) => {",
+                  "       pm.collectionVariables.set(\"commentId\", commentId);",
+                  "       console.log(\"✅ Comment created with ID:\", commentId);",
+                  "    });",
+                  "  });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}articles/{{slugConduit}}/comments/{{commentId}}",
+              "host": [
+                "{{BASE_URL}}articles"
+              ],
+              "path": [
+                "{{slugConduit}}",
+                "comments",
+                "{{commentId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          "function functionToString(helper) {",
+          "  return helper.toString();",
+          "}",
+          "",
+          "",
+          "// ==== Створення користувача (new) ====",
+          "const registrationRequestNew = (",
+          "    username,",
+          "    email,",
+          "    completion",
+          "    ) => {",
+          "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+          "  const url = BASE_URL + 'users';",
+          "",
+          "  const body = {",
+          "    username: username,",
+          "    email: email,",
+          "    password: pm.collectionVariables.get(\"passwordConduit\"),",
+          "  };",
+          "",
+          "  const request = {",
+          "    url: url,",
+          "    method: 'POST',",
+          "    header: { 'Content-Type': 'application/json' },",
+          "    body: {",
+          "      mode: 'raw',",
+          "      raw: JSON.stringify({ user: body }),",
+          "    },",
+          "  };",
+          "",
+          "   pm.sendRequest(request, (error, response) => {",
+          "    console.log(\"User has registered (\" + response.json().user.username + \")\");",
+          "    if (completion != null){",
+          "        completion(response);",
+          "    }",
+          "  });",
+          "};",
+          "",
+          "// ==== Створення користувача ====",
+          "const registrationRequest = (toFollow = false, completion = null) => {",
+          "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+          "  const url = BASE_URL + 'users';",
+          "",
+          "  const body = {",
+          "    username: 'user_' + Math.random().toString(36).substring(2, 8),",
+          "    email: 'email_' + Math.random().toString(36).substring(2, 8) + '@test.com',",
+          "    password: pm.collectionVariables.get(\"passwordConduit\"),",
+          "  };",
+          "",
+          "  const request = {",
+          "    url: url,",
+          "    method: 'POST',",
+          "    header: { 'Content-Type': 'application/json' },",
+          "    body: {",
+          "      mode: 'raw',",
+          "      raw: JSON.stringify({ user: body }),",
+          "    },",
+          "  };",
+          "  ",
+          "  pm.sendRequest(request, (error, response) => {",
+          "",
+          "    console.log(\"User has registered (\" + toFollow + \")\")",
+          "",
+          "    if (toFollow){",
+          "        pm.collectionVariables.set(\"userToFollow\", response.json().user.username);",
+          "    } else {",
+          "    }",
+          "        pm.collectionVariables.set('tokenConduit', response.json().user.token);",
+          "        pm.collectionVariables.set('usernameConduit', response.json().user.username);",
+          "",
+          "    if (completion != null){",
+          "        completion(response)",
+          "    }",
+          "  });",
+          "};",
+          "",
+          "pm.collectionVariables.set('createNewUser', functionToString(registrationRequest));",
+          "pm.collectionVariables.set('createNewUserNew', functionToString(registrationRequestNew));",
+          "",
+          "",
+          "// === Create an article ===",
+          "const createArticle = (token, completion = null)=> {",
+          "",
+          "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+          "  const urlArticle = BASE_URL + 'articles';",
+          "  const title = 'Title_' + Math.random().toString(36).substring(2, 6);",
+          "  const description = 'Desc_' + Math.random().toString(36).substring(2, 6);",
+          "  const body = 'Body_' + Math.random().toString(36).substring(2, 6);",
+          "",
+          "  const articleBody = {",
+          "    article: {",
+          "      title,",
+          "      description,",
+          "      body,",
+          "      tagList: []",
+          "    }",
+          "  };",
+          "",
+          "  const articleRequest = {",
+          "    url: urlArticle,",
+          "    method: 'POST',",
+          "    header: {",
+          "      'Content-Type': 'application/json',",
+          "      'Authorization': 'Token ' + token",
+          "    },",
+          "    body: {",
+          "      mode: 'raw',",
+          "      raw: JSON.stringify(articleBody)",
+          "    }",
+          "  };",
+          "",
+          "  // Save slug and set new update values",
+          "  pm.sendRequest(articleRequest, (err, res) => {",
+          "    console.log(\"Article request:\");",
+          "\t\tconsole.log(err);",
+          "    console.log(res);",
+          "    const article = res.json().article;",
+          "    pm.collectionVariables.set('slugConduit', article.slug);",
+          "    pm.collectionVariables.set('articleTitle', article.title);",
+          "    pm.collectionVariables.set('articleDescription', article.description);",
+          "    pm.collectionVariables.set('articleBody', article.body);",
+          "    pm.collectionVariables.set(\"tagConduit\", article.tagList);",
+          "",
+          "    if (completion != null) {",
+          "        completion(article.slug);",
+          "    }",
+          "  });",
+          "}",
+          "",
+          "pm.collectionVariables.set('createArticle', functionToString(createArticle));",
+          "",
+          "",
+          "// ==== Видалення статті ====",
+          "const deleteArticleRequest = () => {",
+          "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+          "  const SLUG = pm.collectionVariables.get('slugConduit');",
+          "  const token = pm.collectionVariables.get('tokenConduit');",
+          "  const url = `${BASE_URL}articles/${SLUG}`;",
+          "",
+          "  const deleteRequest = {",
+          "    url,",
+          "    method: 'DELETE',",
+          "    header: {",
+          "      'Content-Type': 'application/json',",
+          "      'Authorization': 'Token ' + token,",
+          "    },",
+          "  };",
+          "",
+          "  pm.sendRequest(deleteRequest);",
+          "};",
+          "",
+          "pm.collectionVariables.set('deleteArticle', functionToString(deleteArticleRequest));",
+          "",
+          "// === Create a comment ===",
+          "",
+          "const createComment = (token, slug) => {",
+          "  const BASE_URL = pm.collectionVariables.get('BASE_URL');",
+          "",
+          "  const req = {",
+          "    url: `${BASE_URL}articles/${slug}/comments`,",
+          "    method: 'POST',",
+          "    header: {",
+          "      'Content-Type': 'application/json',",
+          "      'Authorization': 'Token ' + token",
+          "    },",
+          "    body: {",
+          "      mode: 'raw',",
+          "      raw: JSON.stringify({",
+          "        comment: { body: \"Comment to delete\" }",
+          "      })",
+          "    }",
+          "  };",
+          "",
+          "  pm.sendRequest(req, (err, res) => {",
+          "    if (err) return console.log(\"❌ Comment creation failed\", err);",
+          "",
+          "    const commentId = res.json().comment.id;",
+          "    pm.collectionVariables.set(\"commentId\", commentId);",
+          "    console.log(\"✅ Comment created with ID:\", commentId);",
+          "  });",
+          "};",
+          "",
+          "pm.collectionVariables.set('createComment', functionToString(createComment));",
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "https://conduit.mate.academy/api/",
+      "type": "string"
+    },
+    {
+      "key": "passwordConduit",
+      "value": "W@lterWh1te",
+      "type": "string"
+    },
+    {
+      "key": "createNewUser",
+      "value": ""
+    },
+    {
+      "key": "assertStatusCodeAndResponseTime",
+      "value": ""
+    },
+    {
+      "key": "deleteArticle",
+      "value": ""
+    },
+    {
+      "key": "randomTitle",
+      "value": ""
+    },
+    {
+      "key": "randomDescription",
+      "value": ""
+    },
+    {
+      "key": "randomBody",
+      "value": ""
+    },
+    {
+      "key": "tokenConduit",
+      "value": ""
+    },
+    {
+      "key": "slugConduit",
+      "value": ""
+    },
+    {
+      "key": "updatedTitle",
+      "value": ""
+    },
+    {
+      "key": "updatedDescription",
+      "value": ""
+    },
+    {
+      "key": "updatedBody",
+      "value": ""
+    },
+    {
+      "key": "articleTitle",
+      "value": ""
+    },
+    {
+      "key": "articleDescription",
+      "value": ""
+    },
+    {
+      "key": "articleBody",
+      "value": ""
+    },
+    {
+      "key": "tagConduit",
+      "value": ""
+    },
+    {
+      "key": "slug",
+      "value": ""
+    },
+    {
+      "key": "slugAuth",
+      "value": ""
+    },
+    {
+      "key": "usernameConduit",
+      "value": ""
+    },
+    {
+      "key": "emailConduit",
+      "value": ""
+    },
+    {
+      "key": "commentId",
+      "value": ""
+    },
+    {
+      "key": "newEmail",
+      "value": ""
+    },
+    {
+      "key": "userToFollow",
+      "value": ""
+    },
+    {
+      "key": "createNewUserNew",
+      "value": ""
+    },
+    {
+      "key": "newUsername",
+      "value": ""
+    },
+    {
+      "key": "newPassword",
+      "value": ""
+    },
+    {
+      "key": "createArticle",
+      "value": ""
+    },
+    {
+      "key": "tokenNotAuth",
+      "value": ""
+    },
+    {
+      "key": "postComment",
+      "value": ""
+    },
+    {
+      "key": "createComment",
+      "value": ""
+    },
+    {
+      "key": "usernameUser1",
+      "value": ""
+    }
+  ]
+}
