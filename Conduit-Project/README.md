@@ -1,60 +1,87 @@
-# Conduit — API Testing Project
+# Conduit – API Testing Project
 
 ## 📌 Project Overview
 
-This project contains complete QA documentation for testing the Conduit REST API  
-(RealWorld application).
+This project demonstrates structured API testing of the Conduit application 
+(RealWorld example API).
 
-The goal of this project was to demonstrate structured test design, API validation, 
-requirements traceability, and defect reporting.
+The repository showcases complete QA documentation and professional project organization,
+suitable for freelance and portfolio presentation (Upwork-ready).
 
 ---
 
 ## 🎯 Testing Scope
 
-- User registration & authentication
-- Article creation, editing, deletion
-- Comments functionality
-- Profile & follow system
-- Authorization & negative scenarios
+The following API modules were covered:
 
----
+- User Registration
+- Authentication
+- Article Management
+- Profile
+- Comments
 
-## 🛠 Testing Types Performed
+Testing included:
 
-- Functional testing
-- API testing (REST)
-- Positive & negative testing
+- Functional validation
+- Positive & Negative scenarios
+- Validation rules
 - Permission testing
-- Requirements traceability validation
+- Response structure validation
+- Error handling verification
+
+---
+
+## 🛠 Testing Approach
+
+- Requirements analysis
+- Requirements decomposition
+- Test Plan creation
+- Test Case design (TestRail export)
+- Bug reporting documentation
+- Structured documentation management
 
 ---
 
 
 ---
 
-## 🧰 Tools Used
+## 🧩 Test Case Management
+
+Test cases were designed and structured in TestRail.
+Export is provided in XML format.
+
+Covers:
+
+- Registration flows
+- Authentication validation
+- Required field validation
+- Negative cases
+- Status code verification
+
+---
+
+## 🚀 Tools Used
 
 - Postman
-- Git
-- GitHub
-- Markdown
-- Browser DevTools
+- TestRail
+- Git & GitHub
+- VS Code
+- REST API
+- JSON
 
 ---
 
-## 👩‍💻 My Responsibilities
+## 💼 Portfolio Purpose
 
-- Requirements decomposition
-- Test case design
-- RTM creation
-- Permission analysis
-- API validation
-- Test reporting
+This repository demonstrates:
 
----
+- Structured QA documentation
+- Clear test organization
+- Professional repository structure
+- API testing skills (Manual + Documentation)
 
-## 📎 Repository Purpose
-
-This repository demonstrates structured QA documentation and professional 
-project organization suitable for portfolio and freelance work.
+Suitable for:
+- Manual QA roles
+- API QA positions
+- Freelance projects (Upwork)
+- QA Documentation Specialist roles
