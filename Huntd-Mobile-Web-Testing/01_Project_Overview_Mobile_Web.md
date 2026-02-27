@@ -1,53 +1,18 @@
-# Hunter – QA Documentation Project
+Huntd is my main QA portfolio project for both web and mobile. The product is a job search and application tracking app. My goal was to verify the quality of the application and prepare clear testing documentation and defect evaluation.
 
-## 📌 Project Overview
+In this project I created the test plan, decomposition, permission table, and RTM. I wrote and organized test cases in TestRail for web and mobile, and tracked defects in Jira. All materials are structured so it is easy to review what was tested and how the coverage was built.
 
-Hunter is a web application focused on job search and recruitment workflow management.
+Skills shown
+Requirements analysis and decomposition
+Test planning and test design
+RTM and permission testing
+Test case management and coverage tracking
+Bug reporting and defect tracking
+Web and mobile testing workflow
 
-This project demonstrates full-cycle QA documentation creation based on business requirements and user flows.
-
----
-
-## 🎯 Scope of Work
-
-During this project I created:
-
-- Test Plan
-- Requirement Traceability Matrix (RTM)
-- Permission Table
-- Functional Decomposition
-- Bug Reports
-- Test Case Design
-- STLC documentation
-
----
-
-## 📊 QA Activities
-
-- Requirements analysis
-- Risk identification
-- Functional decomposition
-- Test case design
-- Traceability mapping
-- Permission validation testing
-- Defect reporting and prioritization
-
----
-
-## 🛠 Tools Used
-
-- TestRail
-- Jira
-- Google Docs
-- GitHub
-- Markdown
-
----
-
-## 📎 Key QA Focus Areas
-
-- Access control validation
-- Role-based permissions
-- Functional coverage validation
-- Requirement traceability
-- Defect lifecycle management
+Tools used
+TestRail Web
+TestRail Mobile
+Jira
+Google Sheets / Excel
+Git and GitHub
