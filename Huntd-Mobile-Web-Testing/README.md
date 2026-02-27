@@ -1,6 +1,6 @@
-Huntd is my main QA portfolio project for both web and mobile. The product is a job search and application tracking app. My goal was to verify the quality of the application and prepare clear testing documentation and defect evaluation.
+Huntd Mobile Web Testing is my largest QA portfolio project. The product is a job search and application tracking app.
 
-In this project I created the test plan, decomposition, permission table, and RTM. I wrote and organized test cases in TestRail for web and mobile, and tracked defects in Jira. All materials are structured so it is easy to review what was tested and how the coverage was built.
+In this project I created core QA documentation and test coverage for both web and mobile. The repository is organized so it is easy to review what was tested and which artifacts were produced.
 
 Skills shown
 Requirements analysis and decomposition
@@ -11,8 +11,15 @@ Bug reporting and defect tracking
 Web and mobile testing workflow
 
 Tools used
-TestRail Web
-TestRail Mobile
+TestRail (Web and Mobile)
 Jira
 Google Sheets / Excel
+Postman
+Chrome DevTools
 Git and GitHub
+
+How to review
+Start with 01_Test-Plan
+Then open 02_Test-Design (Decomposition, Permission Table, RTM)
+Review bug reports in 03_Bug-Reports
+Check TestRail exports in 04_TestRail-Exports
