@@ -1,34 +1,12 @@
-# PetStore — Web QA Documentation & Bug Reporting
+PetStor (PetStore) is a small QA portfolio project. I used it to show how I work as a QA Engineer on a real feature, the Cart.
 
-## Project Overview
+In this project I practiced requirements analysis, followed a structured testing process (STLC), and documented issues as bug reports. I also organized all artifacts in a clear GitHub repository structure.
 
-PetStore is a web-based application used to demonstrate QA documentation and defect reporting.
+Tools I used:
+Excel (XLSX)
+PDF
+Git and GitHub
+VS Code
+Terminal
 
-This project focuses on requirements analysis, documentation work, and structured bug reporting.
-
----
-
-## Documentation Included
-
-- Requirements documentation (including extended requirements)
-- STLC notes
-- Bug Reports
-- Extended Bug Reports
-
----
-
-## QA Activities Performed
-
-- Requirements review and clarification
-- Functional flow analysis
-- Form validation checks
-- Negative scenario testing
-- Structured bug reporting with severity and priority
-
----
-
-## Tools Used
-
-- Google Docs
-- Markdown
-- GitHub
+All documents are stored in three folders: Requirements, Test Design (STLC), and Bug Reports.
