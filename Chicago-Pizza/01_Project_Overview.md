@@ -1,26 +1,32 @@
-# Chicago Pizza – Bug Reporting & Exploratory Testing
+# Chicago Pizza — Web Bug Reporting Project
 
-## 📌 Project Overview
+## Project Overview
 
-Chicago Pizza is a web-based food ordering platform.
+Chicago Pizza is a web-based food ordering website.
 
-This project focuses primarily on defect detection, exploratory testing, and structured bug reporting.
-
----
-
-## 🎯 Scope of Work
-
-During this project I performed:
-
-- Exploratory testing
-- Functional validation
-- Bug identification
-- Structured bug reporting
-- Severity & priority classification
+This project focuses on identifying and documenting functional and UI defects.
 
 ---
 
-## 🔎 ## 📂 Documentation Included
+## Documentation Included
 
- - Exploratory testing results
- - Structured bug reports
+- Bug Reports
+
+---
+
+## QA Activities Performed
+
+- Functional flow testing
+- Form validation checks
+- UI issue detection
+- Error message validation
+- Reproducible bug documentation with severity and priority
+
+---
+
+## Tools Used
+
+- Browser DevTools
+- Google Docs
+- Markdown
+- GitHub
