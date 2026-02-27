@@ -1,62 +1,34 @@
-# PetStore – Web QA & STLC Project
+# PetStore — Web QA Documentation & Bug Reporting
 
-## 📌 Project Overview
+## Project Overview
 
-PetStore is a web-based e-commerce application designed for managing pet products and customer orders.
+PetStore is a web-based application used to demonstrate QA documentation and defect reporting.
 
-This project demonstrates structured QA workflow following full STLC (Software Testing Life Cycle).
-
----
-
-## 🎯 Scope of Work
-
-During this project I created:
-
-- Extended requirements analysis
-- Test strategy
-- STLC documentation
-- Functional test cases
-- Bug reports (basic & extended)
-- Shielded site analysis
+This project focuses on requirements analysis, documentation work, and structured bug reporting.
 
 ---
 
-## 🔄 STLC Implementation
+## Documentation Included
 
-1. Requirement Analysis
-2. Test Planning
-3. Test Case Design
-4. Test Execution
-5. Defect Reporting
-6. Test Closure Documentation
+- Requirements documentation (including extended requirements)
+- STLC notes
+- Bug Reports
+- Extended Bug Reports
 
 ---
 
-## 🔎 QA Activities
+## QA Activities Performed
 
-- Functional validation
-- Negative testing
-- Boundary testing
-- Bug severity & priority assessment
-- Risk analysis
-- Coverage validation
+- Requirements review and clarification
+- Functional flow analysis
+- Form validation checks
+- Negative scenario testing
+- Structured bug reporting with severity and priority
 
 ---
 
-## 🛠 Tools Used
+## Tools Used
 
-- Jira
-- TestRail
 - Google Docs
 - Markdown
 - GitHub
-
----
-
-## 📎 Key QA Focus Areas
-
-- E-commerce workflow validation
-- Product catalog logic testing
-- Order processing validation
-- Form validation
-- Error handling
